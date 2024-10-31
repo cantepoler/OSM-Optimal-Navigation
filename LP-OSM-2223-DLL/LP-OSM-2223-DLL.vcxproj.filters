@@ -42,6 +42,12 @@
     <ClInclude Include="PuntDeInteresBase.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="PuntDeInteresBotigaSolucio.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PuntDeInteresRestaurantSolucio.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -65,5 +71,16 @@
     <ClCompile Include="PuntDeInteresBase.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="PuntDeInteresBotigaSolucio.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PuntDeInteresRestaurantSolucio.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\.gitignore">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
 </Project>

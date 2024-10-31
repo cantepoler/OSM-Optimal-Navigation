@@ -35,4 +35,14 @@ typedef struct {
 	std::vector<CHILD_NODE> fills;
 } XmlElement;
 
+//Definició dels colors per a la classe PuntDeInteresBotigaSolucio
+#define COLOR_BOTIGA_SUPERMARKET 0xA5BE00
+#define COLOR_BOTIGA_TOBACCO 0xFFAD69
+#define COLOR_BOTIGA_BAKERY 0xE85D75
+#define COLOR_BOTIGA_BAKERY_WHEELCHAIR 0x4CB944
+#define COLOR_BOTIGA_DEFECTE 0xEFD6AC
 
+//Definició dels colors per a la classe PuntDeInteresRestaurantSolucio
+#define COLOR_RESTAURANT_PIZZA 0x03FCBA
+#define COLOR_RESTAURANT_CHINESE 0xA6D9F7
+#define COLOR_RESTAURANT_WHEELCHAIR 0x251351
