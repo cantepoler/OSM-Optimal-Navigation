@@ -1,5 +1,7 @@
 #pragma once
+#include "pch.h"
 #include "PuntDeInteresBase.h"
+
 class PuntDeInteresBotigaSolucio : public PuntDeInteresBase
 {
 public:
@@ -9,6 +11,7 @@ public:
 		const std::string& opening_hours, const std::string& wheelchair) : PuntDeInteresBase(coord, name),
 		m_shop(shop), m_opening_hours(opening_hours), m_wheelchair(wheelchair) { ; }
 
+	std::string getName() override;
 	unsigned int getColor() override;
 
 private:

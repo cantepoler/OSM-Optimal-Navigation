@@ -8,7 +8,7 @@ public:
 	PuntDeInteresBase();
 	PuntDeInteresBase(Coordinate coord, std::string name);
 
-	std::string getName();
+	virtual std::string getName();
 	Coordinate getCoord();
 	virtual unsigned int getColor();
 

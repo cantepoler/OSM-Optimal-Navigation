@@ -6,7 +6,7 @@
 #include <iostream>
 #include "Common.h"
 
-#include "MapaSolucio.h"
+#include "MapaBase.h"
 #include "XML4OSMUtil.h"
 
 
@@ -15,7 +15,7 @@ class MapaRender {
         MapaRender();
         static MapaRender* m_singleton;
         XML4OSMUtil* m_xml4osm_util;
-        MapaSolucio* m_mapaBase;            //Crec MapaBase -> MapaSolucio??
+        MapaBase* m_mapaBase;            //Crec MapaBase -> MapaSolucio??
 
     public:
         static MapaRender* instance();
