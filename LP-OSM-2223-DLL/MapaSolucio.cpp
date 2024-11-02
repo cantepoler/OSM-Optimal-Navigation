@@ -7,16 +7,11 @@
 
 void MapaSolucio::getPdis(std::vector<PuntDeInteresBase*>& pdis)
 {
-	m_puntsInteres.push_back(new PuntDeInteresBotigaSolucio({ 41.4918606, 2.1465411 }, "La Millor Pastisseria"));
-	m_puntsInteres.push_back(new PuntDeInteresRestaurantSolucio({ 41.4902204, 2.1406477 }, "El Millor Restaurant", "regional", "yes"));
 	pdis = m_puntsInteres;
 }
 
 void MapaSolucio::getCamins(std::vector<CamiBase*>& camins)
 {
-	CamiSolucio* cami = new CamiSolucio();
-	
-	m_camins.push_back(cami);
 	camins = m_camins;
 }
 
@@ -37,12 +32,14 @@ void MapaSolucio::parsejaXmlElements(std::vector<XmlElement>& xmlElements)
 		CamiSolucio* nouCami = new CamiSolucio();
 		for (int j = 0; j < m_ways[i].size(); j++)
 			nouCami->afegirNode((m_nodesCami.find(m_ways[i][j]))->second);
+		m_camins.push_back(nouCami);
 	}
 }
 
 void MapaSolucio::parsejarNode(std::vector<XmlElement>::iterator& element)
 {
-	double lat, lon, id;
+	double lat = 0, lon = 0;
+	std::string id = "";
 	bool interes;
 
 	//Capturem coordenades i ID
@@ -53,7 +50,7 @@ void MapaSolucio::parsejarNode(std::vector<XmlElement>::iterator& element)
 		if (element->atributs[atribut].first == "lon")
 			lon = std::stod(element->atributs[atribut].second);
 		if (element->atributs[atribut].first == "id")
-			id = std::stoi(element->atributs[atribut].second);
+			id = element->atributs[atribut].second;
 
 	}
 
@@ -74,17 +71,19 @@ void MapaSolucio::parsejarNode(std::vector<XmlElement>::iterator& element)
 				if (valorTag.first == "opening_hours")
 					opening_hours = valorTag.second;
 				if (valorTag.first == "wheelchair")
-					wheelchair == valorTag.second;
+					wheelchair = valorTag.second;
 				if (valorTag.first == "cuisine")
-					cuisine == valorTag.second;
+					cuisine = valorTag.second;
 				if (valorTag.first == "amenity")
-					amenity == valorTag.second;
+					amenity = valorTag.second;
 			}
 		}
 		if (amenity == "restaurant")
 			m_puntsInteres.push_back(new PuntDeInteresRestaurantSolucio({ lat, lon }, name, cuisine, wheelchair));
 		if (shop != "")
 			m_puntsInteres.push_back(new PuntDeInteresBotigaSolucio({ lat, lon }, name, shop, opening_hours, wheelchair));
+		else
+			m_puntsInteres.push_back(new PuntDeInteresBase({ lat, lon }, name));
 	}
 	else
 		m_nodesCami[id] = { lat, lon };				//Guardem les coordenades dels nodes camí a un unordered_map
@@ -123,7 +122,7 @@ void MapaSolucio::classificarCami(std::vector<XmlElement>::iterator& element)
 				Util::kvDeTag(element->fills[fill].second);
 			if (valorTag.first == "highway")
 			{
-				bool valid = true;
+				valid = true;
 				break;
 			}
 		}
@@ -135,7 +134,7 @@ void MapaSolucio::classificarCami(std::vector<XmlElement>::iterator& element)
 		{
 			//Guardem l'ID de cada node en un vector únic per cada camí.
 			if (element->fills[fill].first == "nd")
-				m_ways[m_ways.size() - 1].push_back(std::stoi(element->fills[fill].second[0].second));
+				m_ways[m_ways.size() - 1].push_back(element->fills[fill].second[0].second);
 		}
 	}
 }

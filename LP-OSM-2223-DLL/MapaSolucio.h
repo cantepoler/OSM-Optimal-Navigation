@@ -11,8 +11,8 @@ public:
 	void getCamins(std::vector<CamiBase*>& camins);
 	void parsejaXmlElements(std::vector<XmlElement>& xmlElements);
 private:
-	std::unordered_map<int, Coordinate> m_nodesCami;
-	std::vector<std::vector<int>> m_ways;
+	std::unordered_map<std::string, Coordinate> m_nodesCami;
+	std::vector<std::vector<std::string>> m_ways;
 	std::vector<XmlElement> m_nodesInteres;
 	std::vector<PuntDeInteresBase*> m_puntsInteres;
 	std::vector<CamiBase*> m_camins;
