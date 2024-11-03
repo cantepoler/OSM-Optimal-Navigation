@@ -8,6 +8,8 @@ public:
 	PuntDeInteresRestaurantSolucio(Coordinate coord, const std::string& name, const std::string& cuisine,
 		const std::string& wheelchair) : PuntDeInteresBase(coord, name), m_cuisine(cuisine), m_wheelchair(wheelchair) { ; }
 
+	PuntDeInteresRestaurantSolucio* clone() override { return new PuntDeInteresRestaurantSolucio(*this); }
+
 	std::string getName() override;
 	unsigned int getColor() override;
 

@@ -5,14 +5,32 @@
 #include "CamiSolucio.h"
 #include "Util.h"
 
+MapaSolucio::~MapaSolucio()
+{
+	while (!m_puntsInteres.empty())
+	{
+		delete m_puntsInteres.back();
+		m_puntsInteres.pop_back();
+	}
+	while (!m_camins.empty())
+	{
+		delete m_camins.back();
+		m_camins.pop_back();
+	}
+}
+
+
+
 void MapaSolucio::getPdis(std::vector<PuntDeInteresBase*>& pdis)
 {
-	pdis = m_puntsInteres;
+	for (auto it = m_puntsInteres.begin(); it != m_puntsInteres.end(); it++)
+		pdis.push_back((*it)->clone());
 }
 
 void MapaSolucio::getCamins(std::vector<CamiBase*>& camins)
 {
-	camins = m_camins;
+	for (auto it = m_camins.begin(); it != m_camins.end(); it++)
+		camins.push_back((*it)->clone());
 }
 
 void MapaSolucio::parsejaXmlElements(std::vector<XmlElement>& xmlElements)
@@ -34,7 +52,8 @@ void MapaSolucio::parsejaXmlElements(std::vector<XmlElement>& xmlElements)
 			nouCami->afegirNode((m_nodesCami.find(m_ways[i][j]))->second);
 		m_camins.push_back(nouCami);
 	}
-
+	m_nodesCami.clear();
+	m_ways.clear();
 }
 
 void MapaSolucio::parsejarNode(std::vector<XmlElement>::iterator& element)
