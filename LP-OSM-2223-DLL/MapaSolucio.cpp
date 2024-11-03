@@ -34,6 +34,7 @@ void MapaSolucio::parsejaXmlElements(std::vector<XmlElement>& xmlElements)
 			nouCami->afegirNode((m_nodesCami.find(m_ways[i][j]))->second);
 		m_camins.push_back(nouCami);
 	}
+
 }
 
 void MapaSolucio::parsejarNode(std::vector<XmlElement>::iterator& element)
@@ -99,7 +100,7 @@ bool MapaSolucio::esNodeInteres(std::vector<XmlElement>::iterator& element)
 			std::pair<std::string, std::string> valorTag =
 				Util::kvDeTag(element->fills[fill].second);
 			if (valorTag.first == "highway" || valorTag.first == "public_transport" ||
-				valorTag.first == "acces" || valorTag.first == "entrance")				//Ja no pot ser d'interès
+				valorTag.first == "access" || valorTag.first == "entrance")				//Ja no pot ser d'interès
 			{
 				interes = false;
 				break;
@@ -129,7 +130,7 @@ void MapaSolucio::classificarCami(std::vector<XmlElement>::iterator& element)
 	}
 	if (valid)
 	{
-		m_ways.resize(m_ways.size() + 1);			//incrementem el valor 
+		m_ways.resize(m_ways.size() + 1);			//incrementem el valor de camins dins del vector
 		for (int fill = 0; fill < element->fills.size(); fill++)
 		{
 			//Guardem l'ID de cada node en un vector únic per cada camí.
