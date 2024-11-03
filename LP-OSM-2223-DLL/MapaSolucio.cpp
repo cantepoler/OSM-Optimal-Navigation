@@ -77,7 +77,7 @@ void MapaSolucio::parsejarNode(std::vector<XmlElement>::iterator& element)
 	//Mirem si és de cami o d'interès
 	if (esNodeInteres(element))
 	{
-		std::string name, shop = "", wheelchair="", opening_hours="", cuisine="", amenity="";
+		std::string name = "", shop = "", wheelchair = "", opening_hours = "", cuisine = "", amenity = "";
 		for (int fill = 0; fill < element->fills.size(); fill++)
 		{
 			if (element->fills[fill].first == "tag")

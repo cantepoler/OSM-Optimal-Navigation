@@ -16,5 +16,5 @@ unsigned int PuntDeInteresRestaurantSolucio::getColor()
 	}
 	if (m_cuisine == "chinese")
 		return COLOR_RESTAURANT_CHINESE;
-	return getColor();
+	return PuntDeInteresBase::getColor();
 }
