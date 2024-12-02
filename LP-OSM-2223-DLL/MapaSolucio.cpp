@@ -23,14 +23,12 @@ MapaSolucio::~MapaSolucio()
 
 void MapaSolucio::getPdis(std::vector<PuntDeInteresBase*>& pdis)
 {
-	for (auto it = m_puntsInteres.begin(); it != m_puntsInteres.end(); it++)
-		pdis.push_back((*it)->clone());
+	pdis = m_puntsInteres;
 }
 
 void MapaSolucio::getCamins(std::vector<CamiBase*>& camins)
 {
-	for (auto it = m_camins.begin(); it != m_camins.end(); it++)
-		camins.push_back((*it)->clone());
+	camins = m_camins;
 }
 
 void MapaSolucio::parsejaXmlElements(std::vector<XmlElement>& xmlElements)
@@ -45,6 +43,7 @@ void MapaSolucio::parsejaXmlElements(std::vector<XmlElement>& xmlElements)
 		delete m_puntsInteres.back();
 		m_puntsInteres.pop_back();
 	}
+
 	for (auto element = xmlElements.begin(); element < xmlElements.end(); element++)
 	{
 		if (element->id_element == "node")
@@ -77,9 +76,9 @@ void MapaSolucio::parsejarNode(std::vector<XmlElement>::iterator& element)
 	{
 		if (element->atributs[atribut].first == "lat")
 			lat = std::stod(element->atributs[atribut].second);
-		if (element->atributs[atribut].first == "lon")
+		else if (element->atributs[atribut].first == "lon")
 			lon = std::stod(element->atributs[atribut].second);
-		if (element->atributs[atribut].first == "id")
+		else if (element->atributs[atribut].first == "id")
 			id = element->atributs[atribut].second;
 
 	}

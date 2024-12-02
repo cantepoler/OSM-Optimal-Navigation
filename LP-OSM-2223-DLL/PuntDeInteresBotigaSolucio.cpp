@@ -3,7 +3,7 @@
 
 std::string PuntDeInteresBotigaSolucio::getName()
 {
-    return m_name;
+    return PuntDeInteresBase::getName();
 }
 
 unsigned int PuntDeInteresBotigaSolucio::getColor()
