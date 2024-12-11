@@ -3,6 +3,7 @@
 #include <utility>
 #include "Util.h"
 #include "MapaBase.h"
+#include "GrafSolucio.h"
 class MapaSolucio : public MapaBase
 {
 public:
@@ -16,6 +17,7 @@ private:
 	std::vector<std::vector<std::string>> m_ways;
 	std::vector<PuntDeInteresBase*> m_puntsInteres;
 	std::vector<CamiBase*> m_camins;
+	GrafSolucio m_graf;
 	void parsejarNode(std::vector<XmlElement>::iterator& element);
 	bool esNodeInteres(std::vector<XmlElement>::iterator& element);
 	void classificarCami(std::vector<XmlElement>::iterator& element);

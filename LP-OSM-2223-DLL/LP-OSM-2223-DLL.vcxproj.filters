@@ -54,7 +54,10 @@
     <ClInclude Include="MapaSolucio.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Graf.h">
+    <ClInclude Include="BallTree.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GrafSolucio.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -92,7 +95,10 @@
     <ClCompile Include="MapaSolucio.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Graf.cpp">
+    <ClCompile Include="BallTree.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GrafSolucio.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

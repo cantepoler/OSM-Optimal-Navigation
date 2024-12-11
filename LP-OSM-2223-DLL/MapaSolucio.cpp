@@ -57,8 +57,23 @@ void MapaSolucio::parsejaXmlElements(std::vector<XmlElement>& xmlElements)
 	for (int i = 0; i < m_ways.size(); i++)
 	{
 		CamiSolucio* nouCami = new CamiSolucio();
-		for (int j = 0; j < m_ways[i].size(); j++)
-			nouCami->afegirNode((m_nodesCami.find(m_ways[i][j]))->second);
+		int midaCami = m_ways[i].size();
+		for (int j = 0; j < midaCami; j++)
+		{
+			Coordinate coordNouNode = (m_nodesCami.find(m_ways[i][j]))->second;		
+			nouCami->afegirNode(coordNouNode);											//Afegim cada node de camí al seu cami corresponent
+
+			if (j < midaCami - 1)
+			{
+				Coordinate coordNodeSeguent = (m_nodesCami.find(m_ways[i][j+1]))->second;
+				double distancia = Util::DistanciaHaversine(coordNouNode, coordNodeSeguent);
+
+				//Afegim nova aresta al graf
+				m_graf.afegirAresta(coordNouNode, coordNodeSeguent, distancia);
+			}
+
+
+		}
 		m_camins.push_back(nouCami);
 	}
 	m_nodesCami.clear();
@@ -115,7 +130,10 @@ void MapaSolucio::parsejarNode(std::vector<XmlElement>::iterator& element)
 			m_puntsInteres.push_back(new PuntDeInteresBase({ lat, lon }, name));
 	}
 	else
+	{
 		m_nodesCami[id] = { lat, lon };				//Guardem les coordenades dels nodes camí a un unordered_map
+		m_graf.afegirNode({ lat, lon });
+	}
 }
 
 bool MapaSolucio::esNodeInteres(std::vector<XmlElement>::iterator& element)

@@ -161,10 +161,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="BallTree.h" />
     <ClInclude Include="CamiSolucio.h" />
     <ClInclude Include="Common.h" />
     <ClInclude Include="framework.h" />
-    <ClInclude Include="Graf.h" />
+    <ClInclude Include="GrafSolucio.h" />
     <ClInclude Include="MapaRender.h" />
     <ClInclude Include="MapaBase.h" />
     <ClInclude Include="MapaSolucio.h" />
@@ -177,10 +178,11 @@
     <ClInclude Include="XML4OSMUtil.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="BallTree.cpp" />
     <ClCompile Include="CamiSolucio.cpp" />
     <ClCompile Include="DLL-Bridge.cpp" />
     <ClCompile Include="dllmain.cpp" />
-    <ClCompile Include="Graf.cpp" />
+    <ClCompile Include="GrafSolucio.cpp" />
     <ClCompile Include="MapaRender.cpp" />
     <ClCompile Include="MapaSolucio.cpp" />
     <ClCompile Include="pch.cpp">

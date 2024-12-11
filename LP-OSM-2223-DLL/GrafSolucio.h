@@ -3,14 +3,14 @@
 #include <list>
 #include <utility>
 #include "Common.h"
-class Graf
+class GrafSolucio
 {
 public:
-	Graf();
-	~Graf();
+	GrafSolucio() : m_numNodes(0), m_numArestes(0) { ; }
+	~GrafSolucio() { ; }
 
 	void afegirNode(const Coordinate& node);
-	void afegirAresta(size_t posNode1, size_t posNode2, double pes);
+	void afegirAresta(Coordinate node1, Coordinate node2, double pes);
 
 private:
 	std::vector<std::list<std::pair<size_t, double>>> m_veins; //Els veins, per l'index i el pes (distància Haversine)
