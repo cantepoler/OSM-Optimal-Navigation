@@ -174,3 +174,23 @@ void MapaSolucio::classificarCami(std::vector<XmlElement>::iterator& element)
 	}
 }
 
+void MapaSolucio::construirGraf()
+{
+	size_t idx = 0;
+	for (auto it = m_camins.begin(); it < m_camins.end(); it++)		//Iterem per cada cami
+	{
+		std::vector<Coordinate> coords = (*it)->getCamiCoords();
+		for (size_t nodeCami = 0; nodeCami < coords.size()-1; nodeCami++)		
+			//Dins de cada camí, iterem per cada coordenada que el composa.
+		{
+			Coordinate node1 = coords[nodeCami];
+			Coordinate node2 = coords[nodeCami + 1];
+			float distancia = Util::DistanciaHaversine(node1, node2);
+			m_graf.afegirNode(node1);
+			m_graf.afegirNode(node2);
+			m_graf.afegirAresta(idx++, idx++, distancia);	//Afegim cada node de cami al graf incrementant idx
+															//Per a que sempre sigui un index superior.
+		}
+	}
+}
+

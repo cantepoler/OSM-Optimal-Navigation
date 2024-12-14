@@ -1,3 +1,4 @@
+#include "pch.h"
 #include "BallTree.h"
 
 void BallTree::construirArbre(const std::vector<Coordinate>& coordenades) {
@@ -16,8 +17,10 @@ void BallTree::postOrdre(std::vector<std::list<Coordinate>>& out) {
     // TODO: TASCA 2
 }
 
-Coordinate BallTree::nodeMesProper(Coordinate targetQuery, Coordinate& Q, BallTree* ball) {
+Coordinate BallTree::nodeMesProper(Coordinate targetQuery, Coordinate& Q, BallTree* ball) 
+{
     // TODO: TASCA 3
+    return Coordinate();
 }
 
 

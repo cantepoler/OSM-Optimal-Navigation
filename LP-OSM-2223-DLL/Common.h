@@ -10,10 +10,12 @@ typedef std::pair<std::string, std::string> PAIR_ATTR_VALUE;
 typedef std::pair<std::string, std::vector<PAIR_ATTR_VALUE>> CHILD_NODE;
 
 
-typedef struct {
+typedef struct{
     double lat;
     double lon;
-} Coordinate;
+}Coordinate;
+
+bool operator==(const Coordinate& c1, const Coordinate& c2) { return c1.lat == c2.lat && c1.lon == c2.lon; }
 
 extern "C" typedef struct {
     int i;

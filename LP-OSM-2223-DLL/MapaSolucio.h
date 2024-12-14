@@ -21,5 +21,6 @@ private:
 	void parsejarNode(std::vector<XmlElement>::iterator& element);
 	bool esNodeInteres(std::vector<XmlElement>::iterator& element);
 	void classificarCami(std::vector<XmlElement>::iterator& element);
+	void construirGraf();
 };
 
