@@ -185,7 +185,7 @@ void MapaSolucio::construirGraf()
 		{
 			Coordinate node1 = coords[nodeCami];
 			Coordinate node2 = coords[nodeCami + 1];
-			float distancia = Util::DistanciaHaversine(node1, node2);
+			double distancia = Util::DistanciaHaversine(node1, node2);
 			m_graf.afegirNode(node1);
 			m_graf.afegirNode(node2);
 			m_graf.afegirAresta(idx++, idx++, distancia);	//Afegim cada node de cami al graf incrementant idx

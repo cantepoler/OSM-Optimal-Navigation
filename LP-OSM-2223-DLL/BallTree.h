@@ -85,6 +85,9 @@ private:
 	Coordinate m_pivot;
 	std::vector<Coordinate> m_coordenades;
 
+	Coordinate calculaPuntC(const std::vector<Coordinate>& coordenades);
+	std::vector<double> calculaDistancies(const std::vector<Coordinate>& coordenades, const Coordinate& inicial);
+	Coordinate puntMesLlunya(const std::vector<Coordinate>& coordenades, const std::vector<double>& distancies);
 };
 
 
