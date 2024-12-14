@@ -3,6 +3,7 @@
 #include <list>
 #include <utility>
 #include "Common.h"
+
 class GrafSolucio
 {
 public:

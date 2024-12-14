@@ -1,8 +1,7 @@
 #pragma once
 #include "pch.h"
-
-#include "Common.h"
 #include <vector>
+#include "Common.h"
 
 class CamiBase {
 	public:

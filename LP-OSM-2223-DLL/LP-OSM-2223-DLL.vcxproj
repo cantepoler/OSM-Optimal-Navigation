@@ -180,6 +180,7 @@
   <ItemGroup>
     <ClCompile Include="BallTree.cpp" />
     <ClCompile Include="CamiSolucio.cpp" />
+    <ClCompile Include="Common.cpp" />
     <ClCompile Include="DLL-Bridge.cpp" />
     <ClCompile Include="dllmain.cpp" />
     <ClCompile Include="GrafSolucio.cpp" />

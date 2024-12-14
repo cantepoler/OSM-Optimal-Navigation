@@ -1,4 +1,5 @@
-#pragma once
+#ifndef COMMON_H 
+#define COMMON_H
 
 #include "pch.h"
 
@@ -15,7 +16,8 @@ typedef struct{
     double lon;
 }Coordinate;
 
-bool operator==(const Coordinate& c1, const Coordinate& c2) { return c1.lat == c2.lat && c1.lon == c2.lon; }
+bool operator==(const Coordinate& c1, const Coordinate& c2); 
+
 
 extern "C" typedef struct {
     int i;
@@ -48,3 +50,5 @@ typedef struct {
 #define COLOR_RESTAURANT_PIZZA 0x03FCBA
 #define COLOR_RESTAURANT_CHINESE 0xA6D9F7
 #define COLOR_RESTAURANT_WHEELCHAIR 0x251351
+
+#endif // COMMON_H
