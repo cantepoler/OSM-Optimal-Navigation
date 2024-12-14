@@ -62,17 +62,6 @@ void MapaSolucio::parsejaXmlElements(std::vector<XmlElement>& xmlElements)
 		{
 			Coordinate coordNouNode = (m_nodesCami.find(m_ways[i][j]))->second;		
 			nouCami->afegirNode(coordNouNode);											//Afegim cada node de camí al seu cami corresponent
-
-			if (j < midaCami - 1)
-			{
-				Coordinate coordNodeSeguent = (m_nodesCami.find(m_ways[i][j+1]))->second;
-				double distancia = Util::DistanciaHaversine(coordNouNode, coordNodeSeguent);
-
-				//Afegim nova aresta al graf
-				m_graf.afegirAresta(coordNouNode, coordNodeSeguent, distancia);
-			}
-
-
 		}
 		m_camins.push_back(nouCami);
 	}
@@ -132,7 +121,6 @@ void MapaSolucio::parsejarNode(std::vector<XmlElement>::iterator& element)
 	else
 	{
 		m_nodesCami[id] = { lat, lon };				//Guardem les coordenades dels nodes camí a un unordered_map
-		m_graf.afegirNode({ lat, lon });
 	}
 }
 
